@@ -1,12 +1,12 @@
 "use client";
 
-import Skeleton from "@repo/ui/src/skeleton";
+import TodoInputForm from "@repo/ui/src/todo-input-form";
 import { useEffect, useState } from "react";
-import { Calendar } from "@nextui-org/react";
-import { parseDate } from "@internationalized/date";
+import Skeleton from "@repo/ui/src/skeleton";
+import Task from "@repo/ui/src/task";
 
 export default function TopPage(): JSX.Element {
-  const [tasks, setTasks] = useState();
+  const [tasks, setTasks] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,14 +30,15 @@ export default function TopPage(): JSX.Element {
         TODO <br />
         <span>アプリ</span>
       </h1>
-      <Skeleton />
-      <div className="flex gap-x-4">
-        <Calendar aria-label="Date (No Selection)" />
-        <Calendar
-          aria-label="Date (Uncontrolled)"
-          defaultValue={parseDate("2020-02-03")}
-        />
-      </div>
+      <Skeleton isLoaded={!!tasks} />
+      {tasks &&
+        tasks.map((task) => (
+          <div>
+            <Task taskName={task.name} dueDate={task.dueDate} />
+          </div>
+        ))}
+
+      <TodoInputForm />
     </div>
   );
 }
