@@ -6,6 +6,7 @@
     "start": "node dist/index.js",
     "dev": "tsup --watch --onSuccess \"node dist/index.js\"",
     "build": "tsup",
+    "migrate": "knex migrate:latest",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
@@ -22,6 +23,7 @@
     "knex": "^3.1.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "mysql2": "^3.12.0",
     "objection": "^3.1.5"
   },
   "devDependencies": {

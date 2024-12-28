@@ -7,6 +7,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "migrate": "turbo run migrate",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
@@ -22,5 +23,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }

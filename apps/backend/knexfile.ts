@@ -1,11 +1,13 @@
-// Update with your config settings.
+if (!require.cache["dotenv"]) {
+  require("dotenv").config();
+}
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 export default {
   development: {
-    client: "mysql",
+    client: "mysql2",
     connection: {
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
