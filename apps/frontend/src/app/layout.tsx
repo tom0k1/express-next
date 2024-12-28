@@ -1,4 +1,5 @@
-import "./styles.css";
+import "./globals.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <NextUIProvider>{children}</NextUIProvider>
+      </body>
     </html>
   );
 }
