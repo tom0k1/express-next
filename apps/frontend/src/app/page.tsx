@@ -2,10 +2,8 @@
 
 import TodoInputForm from "@repo/ui/src/todo-input-form";
 import { useEffect, useState } from "react";
-import Skeleton from "@repo/ui/src/skeleton";
 import Task from "@repo/ui/src/task";
-import { Switch } from "@nextui-org/react";
-import { TextHoverEffect } from "../components/ui/text-hover-effect";
+import { BackgroundGradientAnimation } from "../components/ui/background-gradient-animation";
 
 export default function TopPage(): JSX.Element {
   const [tasks, setTasks] = useState<any[]>([]);
@@ -27,22 +25,16 @@ export default function TopPage(): JSX.Element {
   }, []);
 
   return (
-    <div className="container w-screen h-screen">
-      <h1 className="title">
-        <div className="h-[40rem] flex items-center justify-center">
-          <TextHoverEffect text="TODO" />
-        </div>
-      </h1>
-      <Skeleton isLoaded={!!tasks} />
+    <div className="w-screen h-screen flex flex-col justify-center items-center p-4">
+      <h1 className="text-4xl font-bold mb-4">Todo</h1>
+      <TodoInputForm />
       {tasks && (
-        <div className="flex flex-col md:flex-row gap-10 mb-10">
-          {tasks.map((task) => (
-            <Task taskName={task.name} dueDate={task.dueDate} />
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10 p-4">
+          {tasks.map((task, index) => (
+            <Task key={index} taskName={task.name} dueDate={task.dueDate} />
           ))}
         </div>
       )}
-
-      <TodoInputForm />
     </div>
   );
 }

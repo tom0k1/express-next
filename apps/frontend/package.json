@@ -21,6 +21,7 @@
     "next": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-lottie": "^1.2.10",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.62",
     "@types/react-dom": "^18.2.19",
+    "@types/react-lottie": "^1.2.10",
     "typescript": "5.5.4"
   }
 }
