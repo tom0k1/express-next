@@ -74,7 +74,11 @@ export default function App() {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
+      <Button
+        color="primary"
+        onPress={onOpen}
+        className="bg-blue-500 text-white hover:bg-blue-600"
+      >
         タスクを登録する
       </Button>
       <Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
